@@ -1,4 +1,4 @@
-﻿1. General Information
+1. General Information
 1.1. General replies.
 1.1.1. Succesfull reply:
 1.1.2. Error report
@@ -32,10 +32,9 @@ Response:
   "error": "..."
 }
 
-
-________________
 2. Push-notification settings 
 2.1. Device registration/update:
+
 Request:
 POST {base-url}/zaki-push-notification/put/token/deviceUDIDToken
 * put or delete:
@@ -43,7 +42,6 @@ POST {base-url}/zaki-push-notification/put/token/deviceUDIDToken
    * delete - push notification delition.
 * deviceUDIDToken - DeviceUDID_DeviceToken
 Example: 1FD8DC8E-5A40-4512-ARED-0ECFBEA03A17_6af7045d07548056fddb9c680cc3aec6c85e87d596afbfaadbfa8cfc1c78ff00
-
 
 Response:
 {
@@ -54,8 +52,6 @@ Response:
 }
 
 
-
-
 3. News/Posts.
 3.1. News/posts receiving.
 3.1.1. Get list of news/posts
@@ -63,7 +59,6 @@ Request:
 GET {base-url}/?json=get_recent_posts&page=count&count=count
 * count - number of returned news/posts
 * offset  - offset
-
 
 Response:
 {
@@ -74,8 +69,6 @@ Response:
    "posts = [ {..},
               {..} .. ]
 }
-
-
 
 
 3.1.2. Receiving news/posts by type
@@ -100,15 +93,10 @@ Response:
 }
 
 
-
-
-
-
 3.1.3. Receivng detailed news/posts 
 Request:
 GET {base-url}/?json=get_post&post_id=id
 * id - id for news/post
-
 
 {
   "status": "ok",
@@ -120,27 +108,18 @@ GET {base-url}/?json=get_post&post_id=id
 }
 
 
-
-
-
-
-
-
-
-
 4. Search
 4.1. Search for news/post
 
-
 Request:
 GET {base-url}/?json=get_search_results&slug=slug@&search=search_text
-
 
 * search_text  - text
 * slug:
    * news
    * review
    * events
+
 Response:
 {
   "status": "ok",
