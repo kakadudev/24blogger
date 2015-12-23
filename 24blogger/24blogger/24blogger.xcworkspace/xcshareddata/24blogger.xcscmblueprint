@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CF09891FDBA115166BE831684051436D580BF70E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CF09891FDBA115166BE831684051436D580BF70E" : 0,
+    "D42D20E612A7D44ABB2649946D4C2DE22F2F0B5C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6DB1BFB2-4855-47E0-B439-175EEB2C4E07",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CF09891FDBA115166BE831684051436D580BF70E" : "24blogger\/",
+    "D42D20E612A7D44ABB2649946D4C2DE22F2F0B5C" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "24blogger",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "24blogger.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/nagaev001\/du-club-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CF09891FDBA115166BE831684051436D580BF70E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/kakaduapps\/ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D42D20E612A7D44ABB2649946D4C2DE22F2F0B5C"
+    }
+  ]
+}

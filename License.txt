@@ -1,0 +1,3 @@
+This code is the intellectual property of Kakadu Development LLC. Any kind of usage of this code for  foreign projects demands the obligatory reference to Kakadu Development LLC as a developer.
+
+Link to licence agreement: www.blogger.io/license
