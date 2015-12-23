@@ -32,6 +32,7 @@ Response:
   "error": "..."
 }
 
+
 2. Push-notification settings 
 2.1. Device registration/update:
 
@@ -80,7 +81,6 @@ GET {base-url}/?json=get_category_posts&slug=slug&page=count&count=count
    * news
    * review
    * events
-
 
 Response:
 {
