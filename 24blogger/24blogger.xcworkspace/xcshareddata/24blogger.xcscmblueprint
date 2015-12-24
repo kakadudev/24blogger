@@ -1,25 +1,25 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CF09891FDBA115166BE831684051436D580BF70E",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4C995FE2FF8C07628D65588E39EF7F89E9734DE6",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "CF09891FDBA115166BE831684051436D580BF70E" : 0,
-    "D42D20E612A7D44ABB2649946D4C2DE22F2F0B5C" : 0
+    "D42D20E612A7D44ABB2649946D4C2DE22F2F0B5C" : 0,
+    "4C995FE2FF8C07628D65588E39EF7F89E9734DE6" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6DB1BFB2-4855-47E0-B439-175EEB2C4E07",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "CF09891FDBA115166BE831684051436D580BF70E" : "24blogger\/",
-    "D42D20E612A7D44ABB2649946D4C2DE22F2F0B5C" : ""
+    "D42D20E612A7D44ABB2649946D4C2DE22F2F0B5C" : "",
+    "4C995FE2FF8C07628D65588E39EF7F89E9734DE6" : "24blogger\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "24blogger",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "24blogger.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "24blogger\/24blogger.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/nagaev001\/du-club-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kakadudev\/24blogger.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CF09891FDBA115166BE831684051436D580BF70E"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4C995FE2FF8C07628D65588E39EF7F89E9734DE6"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/kakaduapps\/ios.git",
