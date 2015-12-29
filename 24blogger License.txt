@@ -1,3 +1,2 @@
-This code is the intellectual property of Kakadu Development LLC. Any kind of usage of this code for  foreign projects demands the obligatory reference to Kakadu Development LLC as a developer.
+This code is the intellectual property of Kakadu Development LLC (Licensor or owner). Any kind of usage of this code or futher distribution, including to or by third parties, in full or in part, for foreign projects demands the obligatory reference to Kakadu Development LLC (Belarus) as a developer.
 
-Link to licence agreement: www.24blogger.net/license
