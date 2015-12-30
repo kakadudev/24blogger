@@ -63,6 +63,8 @@ typedef enum {
         // Send Request Get Detail News With ID
         [self requestGetDetailNewsWithID:_newsID];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeNotification:) name:NEW_SEARCH_TEXT_AND_TYPE object:nil];
 }
 
 #pragma UITableView
@@ -83,11 +85,10 @@ typedef enum {
         [newsFeed.mainImageView sd_setImageWithURL:[NSURL URLWithString:[mainImage[@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] placeholderImage:nil];
         newsFeed.factorMainImage = [mainImage[@"width"] floatValue] / [mainImage[@"height"] floatValue];
         
-        NSString *slugPost = _arrayDetailNews[indexPath.section][@"categories"][0][@"slug"];
-        if ([slugPost isEqualToString:@"news"]) {
+        if ([_slugPost isEqualToString:@"news"]) {
             [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_news"]];
             [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"news_lm"]];
-        } else if ([slugPost isEqualToString:@"review"] || [slugPost isEqualToString:@"mobileapps"]) {
+        } else if ([_slugPost isEqualToString:@"review"] || [_slugPost isEqualToString:@"mobileapps"]) {
             [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_reviews"]];
             [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"reviews_lm"]];
         } else {
@@ -375,6 +376,8 @@ typedef enum {
         
         [[KakaduClubData sharedKakaduClubData].favoritesID addObject:[NSNumber numberWithInteger:_newsID]];
         [[KakaduClubData sharedKakaduClubData].favoritesArray addObject:_arrayFavorites];
+        
+        [KakaduClubData sharedKakaduClubData].favoritesArray = [NSMutableArray arrayWithArray:[[[KakaduClubData sharedKakaduClubData].favoritesArray reverseObjectEnumerator] allObjects]];
     }
 }
 
@@ -398,7 +401,12 @@ typedef enum {
             NSLog(@"Activity complete");
         }];
     }
+}
 
+#pragma NSNotification
+
+- (void)observeNotification:(NSNotification *)notification {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

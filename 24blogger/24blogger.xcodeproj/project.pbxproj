@@ -289,7 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				DD6048FA1C29973E005FA0B4 /* DataManager */,
-				DD6048F91C29973E005FA0B4 /* Categories */,
 				DD6049101C29973E005FA0B4 /* Singleton */,
 				DD60491D1C29973E005FA0B4 /* ThirdParty */,
 				DD6049861C29973E005FA0B4 /* ViewControllers */,
@@ -303,13 +302,6 @@
 				DD604A011C2997AB005FA0B4 /* Supporting Files */,
 			);
 			path = 24blogger;
-			sourceTree = "<group>";
-		};
-		DD6048F91C29973E005FA0B4 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		DD6048FA1C29973E005FA0B4 /* DataManager */ = {
@@ -711,9 +703,9 @@
 		DD60499D1C29973E005FA0B4 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				DD60499E1C29973E005FA0B4 /* NewsFeedCell */,
 				DD6049A11C29973E005FA0B4 /* NewsFeedVC.h */,
 				DD6049A21C29973E005FA0B4 /* NewsFeedVC.m */,
+				DD60499E1C29973E005FA0B4 /* NewsFeedCell */,
 			);
 			path = Feed;
 			sourceTree = "<group>";

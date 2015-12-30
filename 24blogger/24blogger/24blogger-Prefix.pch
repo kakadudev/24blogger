@@ -24,6 +24,7 @@
 #define VIDEO_FACTOR_FOR_HEIGHT 0.625f
 
 #define SEARCH_TEXT_AND_TYPE @"searchArray"
+#define NEW_SEARCH_TEXT_AND_TYPE @"newSearchArray"
 
 #endif /* KakaduClub_Prefix_pch */
 

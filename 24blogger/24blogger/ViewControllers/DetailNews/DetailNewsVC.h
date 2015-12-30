@@ -16,4 +16,6 @@
 @property (nonatomic, strong) NSArray *arrayFavorites;
 @property (nonatomic, assign) NSInteger newsID;
 
+@property (nonatomic, strong) NSString *slugPost;
+
 @end

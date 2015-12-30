@@ -109,19 +109,29 @@
     [newsFeed.mainImageView sd_setImageWithURL:[NSURL URLWithString:[mainImage[@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] placeholderImage:nil];
     newsFeed.factorMainImage = [mainImage[@"width"] floatValue] / [mainImage[@"height"] floatValue];
     
-    NSString *slugPost = _arrayNewsFeed[indexPath.section][@"categories"][0][@"slug"];
-    
-    if ([slugPost isEqualToString:@"news"]) {
-        [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_news"]];
-        [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"news_lm"]];
-    } else if ([slugPost isEqualToString:@"review"] || [slugPost isEqualToString:@"mobileapps"]) {
-        [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_reviews"]];
-        [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"reviews_lm"]];
-    } else if ([slugPost isEqualToString:@"events"]) {
-        [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_events"]];
-        [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"events_lm"]];
+    if (_kakaduClubType == KakaduClubTypeFeed) {
+        NSString *slugPost = _arrayNewsFeed[indexPath.section][@"categories"][0][@"slug"];
+        if ([slugPost isEqualToString:@"review"] || [slugPost isEqualToString:@"mobileapps"]) {
+            [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_reviews"]];
+            [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"reviews_lm"]];
+        } else if ([slugPost isEqualToString:@"events"]) {
+            [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_events"]];
+            [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"events_lm"]];
+        } else {
+            [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_news"]];
+            [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"news_lm"]];
+        }
     } else {
-        
+        if ([_jsonType isEqualToString:@"review"]) {
+            [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_reviews"]];
+            [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"reviews_lm"]];
+        } else if ([_jsonType isEqualToString:@"events"]) {
+            [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_events"]];
+            [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"events_lm"]];
+        } else {
+            [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_news"]];
+            [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"news_lm"]];
+        }
     }
     
     [newsFeed.titleLabel setText:_arrayNewsFeed[indexPath.section][@"title"]];
@@ -157,6 +167,26 @@
         detailNewsVC.newsID = [_arrayNewsFeed[indexPath.section][@"id"] floatValue];
         detailNewsVC.titleNews = _arrayNewsFeed[indexPath.section][@"title"];
         detailNewsVC.arrayFavorites = _arrayNewsFeed[indexPath.section];
+        
+        if (_kakaduClubType == KakaduClubTypeFeed) {
+            NSString *slugPost = _arrayNewsFeed[indexPath.section][@"categories"][0][@"slug"];
+            if ([slugPost isEqualToString:@"review"] || [slugPost isEqualToString:@"mobileapps"]) {
+                detailNewsVC.slugPost = @"review";
+            } else if ([slugPost isEqualToString:@"events"]) {
+                detailNewsVC.slugPost = @"events";
+            } else {
+                detailNewsVC.slugPost = @"news";
+            }
+        } else {
+            if ([_jsonType isEqualToString:@"review"]) {
+                detailNewsVC.slugPost = @"review";
+            } else if ([_jsonType isEqualToString:@"events"]) {
+                detailNewsVC.slugPost = @"events";
+            } else {
+                detailNewsVC.slugPost = @"news";
+            }
+        }
+        
         [self.navigationController pushViewController:detailNewsVC animated:YES];
     }
 }

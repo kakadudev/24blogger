@@ -54,15 +54,16 @@
     newsFeed.factorMainImage = [mainImage[@"width"] floatValue] / [mainImage[@"height"] floatValue];
     
     NSString *slugPost = _arraySearchNews[indexPath.section][@"categories"][0][@"slug"];
-    if ([slugPost isEqualToString:@"news"]) {
-        [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_news"]];
-        [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"news_lm"]];
-    } else if ([slugPost isEqualToString:@"review"] || [slugPost isEqualToString:@"mobileapps"]) {
+    
+    if ([slugPost isEqualToString:@"review"] || [slugPost isEqualToString:@"mobileapps"]) {
         [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_reviews"]];
         [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"reviews_lm"]];
-    } else {
+    } else if ([slugPost isEqualToString:@"events"]) {
         [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_events"]];
         [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"events_lm"]];
+    } else {
+        [newsFeed.markImageView setImage:[UIImage imageNamed:@"label_news"]];
+        [newsFeed.markText setText:[[LanguageManager sharedLanguageManager] getStringValueByKey:@"news_lm"]];
     }
     
     [newsFeed.titleLabel setText:_arraySearchNews[indexPath.section][@"title"]];
@@ -95,7 +96,17 @@
     } else {
         DetailNewsVC *detailNewsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailNewsVC"];
         detailNewsVC.newsID = [_arraySearchNews[indexPath.section][@"id"] floatValue];
-        detailNewsVC.titleNews = _arraySearchNews[indexPath.section][@"title"];        
+        detailNewsVC.titleNews = _arraySearchNews[indexPath.section][@"title"];
+        
+        NSString *slugPost = _arraySearchNews[indexPath.section][@"categories"][0][@"slug"];
+        if ([slugPost isEqualToString:@"review"] || [slugPost isEqualToString:@"mobileapps"]) {
+            detailNewsVC.slugPost = @"review";
+        } else if ([slugPost isEqualToString:@"events"]) {
+            detailNewsVC.slugPost = @"events";
+        } else {
+            detailNewsVC.slugPost = @"news";
+        }
+        
         [self.navigationController pushViewController:detailNewsVC animated:YES];
     }
 }
@@ -111,6 +122,8 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     // extract array from observer
     self.searchData = [(NSArray *)object valueForKey:SEARCH_TEXT_AND_TYPE];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NEW_SEARCH_TEXT_AND_TYPE object:nil];
     
     if (_searchData == nil) {
         _arraySearchNews = nil;
@@ -151,7 +164,12 @@
 - (void)requestGetSearchNews {
     [[ServerManager sharedManager] getSearchNewsWithSlug:self.searchData[0] searchText:[self.searchData[1] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] onSuccess:^(NSDictionary *dictionary) {
         _arraySearchNews = dictionary[@"posts"];
-        [self.tableView reloadData];
+        
+        if ([_arraySearchNews count] > 0) {
+            [self.tableView reloadData];
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:0 animated:YES];
+        }
+        
         [[HelperFunction sharedHelperFunction] hideProgressHUD];
     } onFailure:^(NSError *error, NSInteger statusCode) {
         [[HelperFunction sharedHelperFunction] hideProgressHUD];
