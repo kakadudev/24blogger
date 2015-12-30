@@ -32,7 +32,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    _arrayNewsFavorites = [KakaduClubData sharedKakaduClubData].favoritesArray;
+
+    NSArray *arrayFav = [KakaduClubData sharedKakaduClubData].favoritesArray;
+    _arrayNewsFavorites = [NSMutableArray arrayWithArray:[[arrayFav reverseObjectEnumerator] allObjects]];
+
     [_tableViewFavorites reloadData];
 }
 
@@ -111,6 +114,16 @@
         detailNewsVC.newsID = [_arrayNewsFavorites[indexPath.section][@"id"] floatValue];
         detailNewsVC.titleNews = _arrayNewsFavorites[indexPath.section][@"title"];
         detailNewsVC.arrayFavorites = _arrayNewsFavorites[indexPath.section];
+        
+        NSString *slugPost = _arrayNewsFavorites[indexPath.section][@"categories"][0][@"slug"];
+        if ([slugPost isEqualToString:@"review"] || [slugPost isEqualToString:@"mobileapps"]) {
+            detailNewsVC.slugPost = @"review";
+        } else if ([slugPost isEqualToString:@"events"]) {
+            detailNewsVC.slugPost = @"events";
+        } else {
+            detailNewsVC.slugPost = @"news";
+        }
+
         [self.navigationController pushViewController:detailNewsVC animated:YES];
     }
 }

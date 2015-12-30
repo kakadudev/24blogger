@@ -615,7 +615,6 @@
 			children = (
 				DD6049871C29973E005FA0B4 /* AboutProject */,
 				DD60498A1C29973E005FA0B4 /* DetailNews */,
-				DD6049991C29973E005FA0B4 /* Favorite */,
 				DD60499A1C29973E005FA0B4 /* Favorites */,
 				DD60499D1C29973E005FA0B4 /* Feed */,
 				DD6049A31C29973E005FA0B4 /* Menu */,
@@ -682,13 +681,6 @@
 				DD6049981C29973E005FA0B4 /* DNCellVideo.m */,
 			);
 			path = DNCellVideo;
-			sourceTree = "<group>";
-		};
-		DD6049991C29973E005FA0B4 /* Favorite */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Favorite;
 			sourceTree = "<group>";
 		};
 		DD60499A1C29973E005FA0B4 /* Favorites */ = {

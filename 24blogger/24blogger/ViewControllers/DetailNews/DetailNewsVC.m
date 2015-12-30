@@ -377,7 +377,7 @@ typedef enum {
         [[KakaduClubData sharedKakaduClubData].favoritesID addObject:[NSNumber numberWithInteger:_newsID]];
         [[KakaduClubData sharedKakaduClubData].favoritesArray addObject:_arrayFavorites];
         
-        [KakaduClubData sharedKakaduClubData].favoritesArray = [NSMutableArray arrayWithArray:[[[KakaduClubData sharedKakaduClubData].favoritesArray reverseObjectEnumerator] allObjects]];
+//        [KakaduClubData sharedKakaduClubData].favoritesArray = [NSMutableArray arrayWithArray:[[[KakaduClubData sharedKakaduClubData].favoritesArray reverseObjectEnumerator] allObjects]];
     }
 }
 
@@ -385,7 +385,7 @@ typedef enum {
     NSString *shareTitle = _arrayDetailNews[0][@"title"];
     NSURL *shareURL = [NSURL URLWithString:_arrayDetailNews[0][@"url"]];
     
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:_arrayDetailNews[0][@"attachments"][0][@"images"][@"normal-post"][@"url"]]];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[_arrayDetailNews[0][@"attachments"][0][@"images"][@"normal-post"][@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     UIImage *imageShare = [UIImage imageWithData:data];
     
     NSArray *activityItems = @[imageShare, shareTitle, shareURL];
